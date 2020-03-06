@@ -173,7 +173,7 @@ If you're using simdjson to parse multiple documents, or in a loop, you should a
 ```c++
 // Allocate a parser big enough for all files
 document::parser parser;
-if (!parser.allocate_capacity(1024*1024)) { exit(1); }
+if (!parser.set_capacity(1024*1024)) { exit(1); }
 
 // Read files with the parser, one by one
 for (padded_string json : { string("[1, 2, 3]"), string("true"), string("[ true, false ]") }) {

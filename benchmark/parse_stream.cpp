@@ -39,7 +39,7 @@ int main (int argc, char *argv[]){
         for (auto i = 0; i < 3; i++) {
             //Actual test
             simdjson::document::parser parser;
-            bool allocok = parser.allocate_capacity(p.size());
+            bool allocok = parser.set_capacity(p.size());
             if (!allocok) {
                 std::cerr << "failed to allocate memory" << std::endl;
                 return EXIT_FAILURE;
