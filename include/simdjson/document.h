@@ -323,6 +323,8 @@ public:
    * @exception simdjson_error if the document is invalid or there was an error parsing it.
    */
   operator document&() noexcept(false);
+  inline element_result<element> operator[](const std::string_view &key) const noexcept;
+  inline element_result<element> operator[](const char *key) const noexcept;
 
   ~doc_ref_result()=default;
 
