@@ -5,8 +5,8 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 endif()
 
-project(simdjson 
-  DESCRIPTION "Parsing gigabytes of JSON per second" 
+project(simdjson
+  DESCRIPTION "Parsing gigabytes of JSON per second"
   LANGUAGES CXX
 )
 
@@ -58,7 +58,10 @@ enable_testing()
 include(include/CMakeLists.txt)
 add_subdirectory(src)
 add_subdirectory(tools)
-add_subdirectory(tests)
+option(ENABLE_SIMDJSON_TESTS "enable simdjson tests" ON)
+if(ENABLE_SIMDJSON_TESTS)
+  add_subdirectory(tests)
+endif()
 add_subdirectory(benchmark)
 
 option(SIMDJSON_GOOGLE_BENCHMARKS "compile the Google Benchmark benchmarks" OFF)
